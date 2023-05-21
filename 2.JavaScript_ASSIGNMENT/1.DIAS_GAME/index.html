@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #winner{
+            font-size: 30px;
+        }
+        #member-1, #member-2, #member-3{
+            font-size: 20px;
+        }
+        #roll{
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: rgb(218, 133, 115);
+        }
+    </style>
+</head>
+<body>
+    <div id="winner">winner is :</div>
+    <div id="member-1">dice 1</div>
+    <div id="member-2">dice 2</div>
+    <div id="member-3">dice 3</div>
+    <button onclick="result" id="roll">Roll The Dice</button>
+</body>
+</html>
+<script>
+    document.querySelector("#roll").addEventListener("click",result)
+    function result(){
+        let member1 =Math.floor(Math.random()*6)+1;
+        document.querySelector("#member-1").innerText =member1;
+
+        let member2 =Math.floor(Math.random()*6)+1;
+        document.querySelector("#member-2").innerText =member2;
+
+        let member3 =Math.floor(Math.random()*6)+1;
+        document.querySelector("#member-3").innerText =member3;
+
+        //console.log(member1,member2,member3)
+
+        if(member1>member2 && member1>member3)
+        {
+            document.querySelector("#member-1").style.color="green"
+            document.querySelector("#winner").innerText="Member-One-"+"Winner"
+        }
+        else if(member2>member1 && member2>member3)
+        {
+            document.querySelector("#member-2").style.color="yellow"
+            document.querySelector("#winner").innerText="Member-Two-"+"Winner"
+        }
+        else if(member3>member1 && member3>member2)
+        {
+            document.querySelector("#member-3").style.color="red"
+            document.querySelector("#winner").innerText="Member-Three-"+"Winner"
+        }
+        else
+        {
+            document.querySelector("#member-1").style.color="blue"
+            document.querySelector("#member-2").style.color="blue"
+            document.querySelector("#member-3").style.color="blue"
+            document.querySelector("#winner").innerText="Tie"
+        }
+    }
+</script>
